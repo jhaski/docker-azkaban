@@ -47,8 +47,8 @@ RUN wget https://s3.amazonaws.com/azkaban2/azkaban2/2.1/azkaban-sql-script-2.1.t
 RUN wget -O /azkaban-2.1/extlib/mysql-connector-java-5.1.26.jar http://search.maven.org/remotecontent?filepath=mysql/mysql-connector-java/5.1.26/mysql-connector-java-5.1.26.jar
 
 #Configure
-RUN sed -i -e "s|tmpdir=|tmpdir=web|" -e "s|&||" /azkaban-2.1/bin/azkaban-web-start.sh && \
-    sed -i -e "s|tmpdir=|tmpdir=executor|" -e "s|&||" /azkaban-2.1/bin/azkaban-executor-start.sh && \
+RUN mkdir /tmp/web && sed -i -e "s|^tmpdir=|tmpdir=/tmp/web|" -e "s|&||" /azkaban-2.1/bin/azkaban-web-start.sh && \
+    mkdir /tmp/executor && sed -i -e "s|^tmpdir=|tmpdir=/tmp/executor|" -e "s|&||" /azkaban-2.1/bin/azkaban-executor-start.sh && \
     cd azkaban-2.1 && \
     keytool -keystore keystore -alias jetty -genkey -keyalg RSA -keypass password -storepass password -dname "CN=Unknown, OU=Unknown, O=Unknown,L=Unknown, ST=Unknown, C=Unknown"
 
