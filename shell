@@ -1,0 +1,1 @@
+docker run -p 49443:8443 -i -t azkaban /bin/bash
