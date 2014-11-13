@@ -1,7 +1,7 @@
 FROM ubuntu:14.04
 
 RUN echo 'deb http://archive.ubuntu.com/ubuntu precise main universe' > /etc/apt/sources.list
-RUN	echo 'deb http://archive.ubuntu.com/ubuntu precise-updates universe' > /etc/apt/sources.list
+RUN	echo 'deb http://archive.ubuntu.com/ubuntu precise-updates universe' >> /etc/apt/sources.list
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
 
 #Prevent daemon start during install
