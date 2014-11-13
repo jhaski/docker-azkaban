@@ -15,7 +15,7 @@ CMD ["/usr/bin/supervisord", "-n"]
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y openssh-server && mkdir /var/run/sshd && echo 'root:root' |chpasswd
 
 #Utilities
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y vim less ntp net-tools inetutils-ping curl git unzip telnet
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y less ntp net-tools inetutils-ping curl git unzip telnet
 
 #MySQL
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
